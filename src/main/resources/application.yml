@@ -1,0 +1,32 @@
+# \u5E94\u7528\u540D\u79F0
+spring:
+  application:
+    name: dynamic
+  datasource:
+    user:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.100.81:3306/user?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: 8a5f2d
+      unique-resource-name: user
+    order:
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://192.168.100.81:3306/order?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: 8a5f2d
+      unique-resource-name: order
+  jta:
+    transaction-manager-id: txManager
+    atomikos:
+      properties:
+        log-base-dir: ./log
+# Mybatis\u914D\u7F6E
+mybatis:
+  configuration:
+    # sql\u65E5\u5FD7\u663E\u793A\uFF0C\u8FD9\u91CC\u4F7F\u7528\u6807\u51C6\u663E\u793A
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # \u5F00\u542F\u9A7C\u5CF0\u547D\u540D\u8F6C\u6362
+    map-underscore-to-camel-case: true
+# \u5E94\u7528\u670D\u52A1 WEB \u8BBF\u95EE\u7AEF\u53E3
+server:
+  port: 8080
